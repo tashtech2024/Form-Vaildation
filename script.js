@@ -2,16 +2,10 @@ console.log('Running....');
 const form = document.getElementById("registration");
 const email = document.getElementById["email"];
 const password = document.getElementById["password"];
-// const email = form.elements["email"];
+const login = document.getElementById["login"];
 
-// function validate(event) {
-//     const nameVal = validateName();
-//     if (nameVal === false) {
-//       evt.returnValue = false;
-//       return false;
+//? ===========Email=======?//
 
-// form.addEventListener("register", validate);
-// form.addEventListener("login", validate);
 function validateEmail() {
     let emailVal = email.value;
   
@@ -31,17 +25,45 @@ function validateEmail() {
         "Invalid structure: @.\nYou must include a domain name after the @ symbol."
       );
       email.focus();
-      return false;
-    }
-  
-    return emailVal;
+    evt.returnValue = false;
+    return false;
   }
-//   Password : Toggle Password Visibility
+  }
+  console.log(validateEmail);
+
+//?   Password : Toggle Password Visibility//
   function toggleVisibility() {  
-    var getPasword = document.getElementById("password");  
+    const getPasword = document.getElementById("password");  
     if (getPasword.type === "password") {  
       getPasword.type = "text";  
     } else {  
       getPasword.type = "password";  
     }  
   }  
+  console.log(toggleVisibility);
+
+
+confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+if(password.value != confirm_password.value) {
+  confirm_password.setCustomValidity("Passwords Don't Match");
+} else {
+  confirm_password.setCustomValidity('');
+}
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+  
+// * Sumbit sucess fuction //
+const alertSumbit = document.getElementById("sumbit");
+
+window.addEventListener("submit-form-success-form1", function () {
+  alertSumbit.style.display = "block";
+  setTimeout(function() {
+    alertbox1.style.display = "none";
+  }, 6000);
+});
+console.log(alertSumbit);
+
